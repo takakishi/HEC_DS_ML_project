@@ -1,13 +1,15 @@
 # Tasks
 
+- Free to update and modify this page on GitHub Browser
+
 ## Analysis
-1.
-  [] Exploratory data analysis (EDA) to understand the characteristics of the data
+1. Begin
+    - [ ] Exploratory data analysis (EDA) to understand the characteristics of the data
 2. Data Preprocessing
-  [] Missings, etc
-  [] Convert text to a format that machine learning models can understand (e.g., `TF-IDF`, word embeddings like `Word2Vec`)
+    - [ ] Missings, etc
+    - [ ] Convert text to a format that machine learning models can understand (e.g., `TF-IDF`, word embeddings like `Word2Vec`)
 3. Model Selection
-  [] Choose ML models
+    - [ ] Choose ML models
 4. Model Training
 5. Hyperparameter Tuning
 6. Model Evaluation
@@ -21,3 +23,9 @@
 
 ## Deliverables
 - xxx
+
+## Discussions
+<ins>2023-11-20<ins>
+- Rough schedule
+- Identify objectives and goals
+- Communication channel: Make a new channel in Slack?
