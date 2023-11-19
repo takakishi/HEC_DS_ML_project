@@ -1,6 +1,13 @@
-# Tasks
+# To-Do and and Notes
 
-- Free to update and modify this page on GitHub Browser
+**Free to update and modify!**
+
+## Deadlines
+- `Monday, November 27` 1st stand-up for project
+- `Monday, December 4` 2nd stand-up for project
+- `Sunday, December 17 at 23:59` Kaggle due
+- `Monday, December 18` Project Presentation
+- `Wednesday, December 20 at 23:59` Project due
 
 ## References
 - [Week_06_Solutions.ipynb](https://github.com/michalis0/DataScience_and_MachineLearning/blob/master/Week_6/Week_06_Solutions.ipynb)
