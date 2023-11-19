@@ -1,4 +1,4 @@
-# To-Do and and Notes
+# To-Do and Notes
 
 **Free to update and modify!**
 
