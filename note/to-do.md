@@ -23,3 +23,9 @@
 
 ## Deliverables
 - xxx
+
+## Discussions
+<ins>2023-11-20<ins>
+- Rough schedule
+- Identify objectives and goals
+- Communication channel: Make a new channel in Slack?
