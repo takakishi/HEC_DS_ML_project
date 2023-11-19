@@ -2,6 +2,10 @@
 
 - Free to update and modify this page on GitHub Browser
 
+## References
+- [Week_06_Solutions.ipynb](https://github.com/michalis0/DataScience_and_MachineLearning/blob/master/Week_6/Week_06_Solutions.ipynb)
+- [Assignment_part_five.ipynb](https://github.com/michalis0/DataScience_and_MachineLearning/blob/master/Assignements/Part%205/Assignment_part_five.ipynb) ([Solution](https://github.com/takakishi/HEC_DS_ML_project/blob/main/src/_ref/Assignment_part_five_.ipynb))
+
 ## Analysis
 1. Begin
     - [ ] Exploratory data analysis (EDA) to understand the characteristics of the data
