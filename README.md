@@ -16,7 +16,7 @@ We utilized a dataset provided by the professor, which includes French texts wit
 ## File Descriptions
 - `src/`: This directory contains all the source code used in this project.
   - `XXX.ipynb`: The main script for training the model and running predictions.
-  - `YYY.ipynb`: other code, not the best predictions but used in our table
+  - `YYY.ipynb`: other code, not the best predictions but used in our table.
 
 - `data/data_raw/`: The folder stores the datasets provided at the Kaggle page
   - `training_data.csv`: The dataset used for training the models.
@@ -27,7 +27,7 @@ We utilized a dataset provided by the professor, which includes French texts wit
 
 
 ## Deliverables
-This repository documents the entire process of model development and provides the following components
+This repository documents the entire process of model development and provides the following components.
 
 ### (1) Model Comparison Table
 | Metrics     | Logistic Regression | kNN | Decision Tree | Random Forests | Any other technique |
@@ -38,7 +38,7 @@ This repository documents the entire process of model development and provides t
 | Accuracy    | ...                  | ... | ...           | ...            | ...                 |
 
 ### (2) Presentation Video
-please view our [YouTube presentation video](#) for a detailed explanation of our methodology and a demo of our application.
+Please view our [YouTube presentation video](#) for a detailed explanation of our methodology and a demo of our application.
 
 ### (3) User Interface/Application
 We also developed a user-friendly interface with Streamlit, allowing users to input French text and receive a difficulty assessment instantly.
