@@ -1,4 +1,4 @@
-# DS and ML Final Project: Detecting the Difficulty Level of French Texts
+# DS and ML Final Project:<br> Detecting the Difficulty Level of French Texts
 
 ## Members
 - Matteo Frison
