@@ -41,7 +41,7 @@ This repository documents the entire process of model development and provides t
 Please view our [YouTube presentation video](#) for a detailed explanation of our methodology and a demo of our application.
 
 ### (3) User Interface/Application
-We also developed a user-friendly interface with Streamlit, allowing users to input French text and receive a difficulty assessment instantly.
+We also developed a user-friendly interface with [Streamlit](https://streamlit.io/), allowing users to input French text and receive a difficulty assessment instantly.
 
 
 ## Guide to Replication (TBC)
