@@ -18,14 +18,14 @@ Welcome to the LingoRank App, an innovative platform designed for both learners 
 # 1. Read Data from GitHub -----------------------------
 
 # Function to load the trained model
-@st.cache(allow_output_mutation=True)
-def load_model():
-    with open('model.pkl', 'rb') as file:
-        model = pickle.load(file)
-    return model
+# @st.cache(allow_output_mutation=True)
+# def load_model():
+#     with open('model.pkl', 'rb') as file:
+#         model = pickle.load(file)
+#     return model
 
 # Load your trained model
-model = load_model()
+# model = load_model()
 
 
 
@@ -50,12 +50,12 @@ user_input = st.text_area("Enter French text here")
 #    prediction = your_model.predict([user_input])
 #    st.write(f"The predicted difficulty level is: {prediction}")
 
-if st.button('Predict Difficulty'):
+# if st.button('Predict Difficulty'):
     # Here you should include any preprocessing needed before prediction
     # For example, if your model expects a vectorized form of the text, you would need to transform `user_input` accordingly
     # processed_input = preprocess(user_input)  # Implement this according to your model's preprocessing requirements
-    prediction = model.predict([user_input])  # Adjust this line if preprocessing is needed
-    st.write(f"The predicted difficulty level is: {prediction}")
+#     prediction = model.predict([user_input])  # Adjust this line if preprocessing is needed
+#     st.write(f"The predicted difficulty level is: {prediction}")
 
 
 
