@@ -35,6 +35,10 @@ training_data_url = 'https://raw.githubusercontent.com/takakishi/HEC_DS_ML_proje
 # unlabelled_test_data_url = pd.read_csv('https://raw.githubusercontent.com/takakishi/HEC_DS_ML_project/main/data/data_raw/unlabelled_test_data.csv')
 # sample_submission_url = pd.read_csv('https://raw.githubusercontent.com/takakishi/HEC_DS_ML_project/main/data/data_raw/sample_submission.csv')
 
+def load_data(url):
+    data = pd.read_csv(url)
+    return data
+
 training_data = load_data(training_data_url)
 
 # Display data
