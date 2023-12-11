@@ -10,8 +10,17 @@ st.title('Detecting the Difficulty Level of French Texts with LingoRank Innovati
 
 # Description
 st.markdown("""
-Welcome to the LingoRank App, an innovative platform designed for both learners and educators to gauge the complexity of French texts. Our application harnesses the power of machine learning to evaluate text difficulty, providing instant feedback to help users select reading materials that align with their proficiency levels. Whether you're a language instructor seeking to curate tailored educational content, or a self-learner endeavoring to improve your French, LingoRank is your go-to companion for a seamless and adaptive learning experience. Discover how we can elevate your French learning journey!
+Welcome to the LingoRank App, an innovative platform designed for both learners and educators to gauge the complexity of French texts. Our application harnesses the power of machine learning to evaluate text difficulty, providing instant feedback to help users select reading materials that align with their proficiency levels.
 """)
+
+st.markdown("""
+Whether you're a language instructor seeking to curate tailored educational content, or a self-learner endeavoring to improve your French, LingoRank is your go-to companion for a seamless and adaptive learning experience. 
+""")
+
+st.markdown("""
+Discover how we can elevate your French learning journey!
+""")
+
 
 
 
