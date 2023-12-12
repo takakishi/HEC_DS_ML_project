@@ -33,16 +33,20 @@ Discover how we can elevate your French learning journey!
 
 # Function to load the trained model
 @st.cache(allow_output_mutation=True)
-def load_model(url):
+def load_component(url):
     response = requests.get(url)
-    model_file = BytesIO(response.content)
-    model = pickle.load(model_file)
-    return model
+    component_file = BytesIO(response.content)
+    component = pickle.load(component_file)
+    return component
 
 # Load the trained models
 model_feature_url = 'https://raw.githubusercontent.com/takakishi/HEC_DS_ML_project/main/model/model_feature.pkl'
+tfidf_vectorizer_url = 'https://raw.githubusercontent.com/takakishi/HEC_DS_ML_project/main/model/tfidf_vectorizer.pkl'
+length_scaler_url = 'https://raw.githubusercontent.com/takakishi/HEC_DS_ML_project/main/model/length_scaler.pkl'
 
-model = load_model(model_feature_url)
+# model = load_component(model_feature_url)
+# tfidf_vectorizer = load_component(tfidf_vectorizer_url)
+length_scaler = load_component(length_scaler_url)
 
 
 
@@ -69,13 +73,12 @@ if st.checkbox('Show our training data sample'):
 user_input = st.text_area("Enter French text here")
 
 if st.button('Predict Difficulty'):
-    # Here include any preprocessing needed before prediction
-    # For example, if the model expects a vectorized form of the text, you would need to transform `user_input` accordingly
-    # processed_input = preprocess(user_input)  # Implement this according to your model's preprocessing requirements
+    # Preprocessing the user input
+    user_input_length = [[len(user_input.split())]]  # Calculate length as a list of lists
+    processed_input_length = length_scaler.transform(user_input_length)
 
-    # Predict and display the difficulty level
-    prediction = model.predict([user_input])  # Adjust this line if preprocessing is needed
-    st.write(f"The predicted difficulty level is: {prediction}")
+    # Display the processed length (You can replace this with your model prediction later)
+    st.write(f"Processed sentence length: {processed_input_length[0][0]}")
 
 
 
