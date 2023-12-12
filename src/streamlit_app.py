@@ -8,6 +8,12 @@ import pickle
 import requests
 from io import BytesIO
 
+import pkg_resources  # <- New import for checking packages
+# Display installed packages and versions (For debugging purposes)
+installed_packages = {d.project_name: d.version for d in pkg_resources.working_set}
+st.text("Installed packages and versions:")
+st.text(installed_packages)  # <- This will display the packages in the Streamlit app
+
 
 
 # 0. Messages ------------------------------------------
