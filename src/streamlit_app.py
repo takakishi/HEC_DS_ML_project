@@ -5,6 +5,12 @@
 import streamlit as st
 import pandas as pd
 import pickle
+import requests
+from io import BytesIO
+
+
+
+# 0. Messages ------------------------------------------
 
 st.title('Detecting the Difficulty Level of French Texts with LingoRank Innovative App')
 
@@ -14,7 +20,7 @@ Welcome to the LingoRank App, an innovative platform designed for both learners 
 """)
 
 st.markdown("""
-Whether you're a language instructor seeking to curate tailored educational content, or a self-learner endeavoring to improve your French, LingoRank is your go-to companion for a seamless and adaptive learning experience. 
+Whether you're a language instructor seeking to curate tailored educational content, or a self-learner endeavoring to improve your French, LingoRank is your go-to companion for a seamless and adaptive learning experience.
 """)
 
 st.markdown("""
@@ -23,18 +29,20 @@ Discover how we can elevate your French learning journey!
 
 
 
-
 # 1. Read Data from GitHub -----------------------------
 
 # Function to load the trained model
-# @st.cache(allow_output_mutation=True)
-# def load_model():
-#     with open('model.pkl', 'rb') as file:
-#         model = pickle.load(file)
-#     return model
+@st.cache(allow_output_mutation=True)
+def load_model(url):
+    response = requests.get(url)
+    model_file = BytesIO(response.content)
+    model = pickle.load(model_file)
+    return model
 
-# Load your trained model
-# model = load_model()
+# Load the trained models
+model_feature_url = 'https://github.com/takakishi/HEC_DS_ML_project/raw/main/model/model_feature.pkl'
+
+model = load_model(model_feature_url)
 
 
 
@@ -59,16 +67,11 @@ if st.checkbox('Show our training data sample'):
 
 user_input = st.text_area("Enter French text here")
 
-# if st.button('Predict Difficulty'):
-#    prediction = your_model.predict([user_input])
-#    st.write(f"The predicted difficulty level is: {prediction}")
-
-# if st.button('Predict Difficulty'):
-    # Here you should include any preprocessing needed before prediction
-    # For example, if your model expects a vectorized form of the text, you would need to transform `user_input` accordingly
-    # processed_input = preprocess(user_input)  # Implement this according to your model's preprocessing requirements
-#     prediction = model.predict([user_input])  # Adjust this line if preprocessing is needed
-#     st.write(f"The predicted difficulty level is: {prediction}")
+if st.button('Predict Difficulty'):
+    with st.spinner('Making prediction...'):
+        # Preprocessing and prediction code
+        prediction = model.predict([user_input])  # Adjust this line if preprocessing is needed
+    st.success(f"The predicted difficulty level is: {prediction}")
 
 
 
