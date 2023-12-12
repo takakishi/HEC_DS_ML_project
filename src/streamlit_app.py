@@ -40,7 +40,7 @@ def load_model(url):
     return model
 
 # Load the trained models
-model_feature_url = 'https://github.com/takakishi/HEC_DS_ML_project/raw/main/model/model_feature.pkl'
+model_feature_url = 'https://raw.githubusercontent.com/takakishi/HEC_DS_ML_project/main/model/model_feature.pkl'
 
 model = load_model(model_feature_url)
 
@@ -63,15 +63,19 @@ if st.checkbox('Show our training data sample'):
     st.write(training_data.head())
 
 
+
 # 3. User Input for Model Prediction ------------------
 
 user_input = st.text_area("Enter French text here")
 
 if st.button('Predict Difficulty'):
-    with st.spinner('Making prediction...'):
-        # Preprocessing and prediction code
-        prediction = model.predict([user_input])  # Adjust this line if preprocessing is needed
-    st.success(f"The predicted difficulty level is: {prediction}")
+    # Here include any preprocessing needed before prediction
+    # For example, if the model expects a vectorized form of the text, you would need to transform `user_input` accordingly
+    # processed_input = preprocess(user_input)  # Implement this according to your model's preprocessing requirements
+
+    # Predict and display the difficulty level
+    prediction = model.predict([user_input])  # Adjust this line if preprocessing is needed
+    st.write(f"The predicted difficulty level is: {prediction}")
 
 
 
