@@ -38,20 +38,21 @@ Discover how we can elevate your French learning journey!
 
 # Function to load the trained model
 @st.cache(allow_output_mutation=True)
-def load_component(url):
+def load_model(url):
     response = requests.get(url)
-    component_file = BytesIO(response.content)
-    component = pickle.load(component_file)
-    return component
+    model_file = BytesIO(response.content)
+    model = joblib.load(model_file)
+    return model
 
 # Load the trained models
 model_feature_url = 'https://raw.githubusercontent.com/takakishi/HEC_DS_ML_project/main/model/model_feature.pkl'
 tfidf_vectorizer_url = 'https://raw.githubusercontent.com/takakishi/HEC_DS_ML_project/main/model/tfidf_vectorizer.pkl'
 length_scaler_url = 'https://raw.githubusercontent.com/takakishi/HEC_DS_ML_project/main/model/length_scaler.pkl'
+model_url = 'https://raw.githubusercontent.com/takakishi/HEC_DS_ML_project/main/model/log_reg_length_basic.joblib'
 
 # model = load_component(model_feature_url)
 # tfidf_vectorizer = load_component(tfidf_vectorizer_url)
-length_scaler = load_component(length_scaler_url)
+model = load_component(model_url)
 
 
 
@@ -80,7 +81,7 @@ user_input = st.text_area("Enter French text here")
 if st.button('Predict Difficulty'):
     # Preprocessing the user input
     user_input_length = [[len(user_input.split())]]  # calculate length as a list of lists
-    processed_input_length = length_scaler.transform(user_input_length)
+    processed_input_length = model.transform(user_input_length)
 
     # Display the processed length
     st.write(f"Processed sentence length: {processed_input_length[0][0]}")
