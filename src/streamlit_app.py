@@ -8,6 +8,7 @@ import pickle
 import requests
 import joblib
 from io import BytesIO
+from scipy.sparse import hstack
 
 import pkg_resources  # for checking packages
 installed_packages = {d.project_name: d.version for d in pkg_resources.working_set}
@@ -39,11 +40,11 @@ Discover how we can elevate your French learning journey!
 
 # Function to load the trained model
 @st.cache(allow_output_mutation=True)
-def load_model(url):
+def load_component(url):
     response = requests.get(url)
-    model_file = BytesIO(response.content)
-    model = joblib.load(model_file)
-    return model
+    component_file = BytesIO(response.content)
+    component = joblib.load(component_file)
+    return component
 
 # Load the trained models
 model_feature_url = 'https://raw.githubusercontent.com/takakishi/HEC_DS_ML_project/main/model/model_feature.pkl'
@@ -53,7 +54,9 @@ model_url = 'https://raw.githubusercontent.com/takakishi/HEC_DS_ML_project/main/
 
 # model = load_component(model_feature_url)
 # tfidf_vectorizer = load_component(tfidf_vectorizer_url)
-model = load_model(model_url)
+model = load_component(model_url)
+tfidf_vectorizer = load_component(tfidf_vectorizer_url)
+length_scaler = load_component(length_scaler_url)
 
 
 
@@ -80,12 +83,17 @@ if st.checkbox('Show our training data sample'):
 user_input = st.text_area("Enter French text here")
 
 if st.button('Predict Difficulty'):
-    # Preprocessing the user input
-    user_input_length = [[len(user_input.split())]]  # calculate length as a list of lists
-    processed_input_length = model.transform(user_input_length)
+    # Preprocess the user input
+    user_input_tfidf = tfidf_vectorizer.transform([user_input])  # Vectorize text input
+    user_input_length = [[len(user_input.split())]]  # Calculate length
+    processed_input_length = length_scaler.transform(user_input_length)  # Scale length
 
-    # Display the processed length
-    st.write(f"Processed sentence length: {processed_input_length[0][0]}")
+    # Combine TF-IDF and length features
+    final_input = hstack([user_input_tfidf, processed_input_length])
+
+    # Predict and display the difficulty level
+    prediction = model.predict(final_input)
+    st.write(f"The predicted difficulty level is: {prediction[0]}")
 
 
 
