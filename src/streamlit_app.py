@@ -6,6 +6,7 @@ import streamlit as st
 import pandas as pd
 import pickle
 import requests
+import joblib
 from io import BytesIO
 
 import pkg_resources  # for checking packages
@@ -52,7 +53,7 @@ model_url = 'https://raw.githubusercontent.com/takakishi/HEC_DS_ML_project/main/
 
 # model = load_component(model_feature_url)
 # tfidf_vectorizer = load_component(tfidf_vectorizer_url)
-model = load_component(model_url)
+model = load_model(model_url)
 
 
 
