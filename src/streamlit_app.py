@@ -8,11 +8,10 @@ import pickle
 import requests
 from io import BytesIO
 
-import pkg_resources  # <- New import for checking packages
-# Display installed packages and versions (For debugging purposes)
+import pkg_resources  # for checking packages
 installed_packages = {d.project_name: d.version for d in pkg_resources.working_set}
 st.text("Installed packages and versions:")
-st.text(installed_packages)  # <- This will display the packages in the Streamlit app
+st.text(installed_packages)
 
 
 
@@ -80,10 +79,10 @@ user_input = st.text_area("Enter French text here")
 
 if st.button('Predict Difficulty'):
     # Preprocessing the user input
-    user_input_length = [[len(user_input.split())]]  # Calculate length as a list of lists
+    user_input_length = [[len(user_input.split())]]  # calculate length as a list of lists
     processed_input_length = length_scaler.transform(user_input_length)
 
-    # Display the processed length (You can replace this with your model prediction later)
+    # Display the processed length
     st.write(f"Processed sentence length: {processed_input_length[0][0]}")
 
 
