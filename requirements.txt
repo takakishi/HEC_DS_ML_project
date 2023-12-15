@@ -4,4 +4,5 @@ requests==2.31.0
 scikit-learn==0.24.1
 numpy==1.21.2
 spacy
-joblib
+joblib==1.0.1
+
