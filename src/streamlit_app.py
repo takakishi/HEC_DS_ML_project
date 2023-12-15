@@ -6,7 +6,7 @@ import streamlit as st
 import pandas as pd
 import pickle
 import requests
-import joblib
+# import joblib
 from io import BytesIO
 from scipy.sparse import hstack
 
