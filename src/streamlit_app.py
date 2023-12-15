@@ -8,7 +8,7 @@ import pickle
 import requests
 # import joblib
 from io import BytesIO
-from scipy.sparse import hstack
+# from scipy.sparse import hstack
 
 import pkg_resources  # for checking packages
 installed_packages = {d.project_name: d.version for d in pkg_resources.working_set}
