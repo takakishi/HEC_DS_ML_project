@@ -30,18 +30,22 @@ We utilized a dataset provided by the professor, which includes French texts wit
 This repository documents the entire process of model development and provides the following components.
 
 ### (1) Model Comparison Table
-| Metrics     | Logistic Regression | kNN | Decision Tree | Random Forests | Any other technique |
-|-------------|----------------------|-----|---------------|----------------|---------------------|
-| Precision   | ...                  | ... | ...           | ...            | ...                 |
-| Recall      | ...                  | ... | ...           | ...            | ...                 |
-| F1-Score    | ...                  | ... | ...           | ...            | ...                 |
-| Accuracy    | ...                  | ... | ...           | ...            | ...                 |
+| Metrics     | Logistic Regression | Neural Network |
+|-------------|---------------------|----------------|
+| Precision   | ...                 | ...            |
+| Recall      | ...                 | ...            |
+| F1-Score    | ...                 | ...            |
+| Accuracy    | ...                 | ...            |
 
 ### (2) Presentation Video
 Please view our [YouTube presentation video](#) for a detailed explanation of our methodology and a demo of our application.
 
 ### (3) User Interface/Application
-We also developed a user-friendly interface with [Streamlit](https://streamlit.io/), allowing users to input French text and receive a difficulty assessment instantly. You can find [our app here](https://hecdsmlproject-gytt7js9mervsdwqpm2m6m.streamlit.app/).
+We also developed a user-friendly interface with [Streamlit](https://streamlit.io/), allowing users to input French text and receive a difficulty assessment instantly. You can open and use our app on your PC by running the following command on your terminal:
+```bash
+cd set_this_repository
+streamlit run .\src\streamlit_app.py
+```
 
 
 ## Guide to Replication (TBC)
