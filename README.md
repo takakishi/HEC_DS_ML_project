@@ -43,6 +43,8 @@ Please view our [YouTube presentation video](#) for a detailed explanation of ou
 ### (3) User Interface/Application
 We also developed a user-friendly interface with [Streamlit](https://streamlit.io/), allowing users to input French text and receive a difficulty assessment instantly. You can open and use our app on your PC by running the following command on your terminal:
 ```bash
+# Install streamlit if you use it for the first time
+# pip install streamlit
 cd set_this_repository
 streamlit run .\src\streamlit_app.py
 ```
