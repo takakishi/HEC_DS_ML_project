@@ -1,6 +1,6 @@
 # DS and ML Final Project:<br> Detecting the Difficulty Level of French Texts
 
-## Members
+## Members of UNIL_Zurich
 - Matteo Frison
 - Takaaki Kishida
 
