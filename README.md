@@ -14,16 +14,16 @@ We utilized a dataset provided by the professor, which includes French texts wit
 
 
 ## File Descriptions
-- `src/`: This directory contains all the source code used in this project.
-  - `XXX.ipynb`: The main script for training the model and running predictions.
-  - `YYY.ipynb`: other code, not the best predictions but used in our table.
-
-- `data/data_raw/`: The folder stores the datasets provided at the Kaggle page
+- `data/data_raw/`: The folder stores the datasets provided at the Kaggle page.
   - `training_data.csv`: The dataset used for training the models.
   - `unlabelled_test_data.csv`: The test dataset for which the model predictions are generated.
 
-- `note/`
-  - `EDA.ipynb`: An exploratory data analysis visualize and understand the dataset.
+- `src/`: This directory contains all the source code used in this project.
+  - `XXX.ipynb`: The main script for training the model and running predictions.
+  - `logistic_regression.ipynb`: The script for logistic regression. It does not produce the best predictions but it was our initial try. The results are presented in our table below.
+
+- `model/`
+  - This folder stores our models exported from our code in `src/`.
 
 
 ## Deliverables
@@ -54,3 +54,5 @@ streamlit run .\src\streamlit_app.py
 
 
 ## Guide to Replication (TBC)
+- You can reproduce the results shown in the above table simply by running each notebook without using any other source files.
+- If you want to export the models, you need to uncomment the last code chunks in the notebooks as necessary.
