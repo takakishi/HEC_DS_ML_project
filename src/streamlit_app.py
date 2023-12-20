@@ -10,18 +10,12 @@ import joblib
 from io import BytesIO
 from scipy.sparse import hstack
 
-# import pkg_resources  # for checking packages
-# installed_packages = {d.project_name: d.version for d in pkg_resources.working_set}
-# st.text("Installed packages and versions:")
-# st.text(installed_packages)
-
 
 
 # 0. Messages ------------------------------------------
 
 st.title('Detecting the Difficulty Level of French Texts with LingoRank Innovative App')
 
-# Description
 st.markdown("""
 Welcome to the LingoRank App, an innovative platform designed for both learners and educators to gauge the complexity of French texts. Our application harnesses the power of machine learning to evaluate text difficulty, providing instant feedback to help users select reading materials that align with their proficiency levels.
 """)
