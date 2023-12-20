@@ -40,15 +40,14 @@ Discover how we can elevate your French learning journey!
 
 # Function to load the trained model
 # @st.cache(allow_output_mutation=True)
-def load_component(url):
-    response = requests.get(url)
-    if response.status_code == 200:  # Check if the request was successful
-        component_file = BytesIO(response.content)
-        component = joblib.load(component_file)
-        return component
-    else:
-        response.raise_for_status()  # Will raise an HTTPError if the HTTP request returned an unsuccessful status code
-
+# def load_component(url):
+#     response = requests.get(url)
+#     if response.status_code == 200:  # Check if the request was successful
+#         component_file = BytesIO(response.content)
+#         component = joblib.load(component_file)
+#         return component
+#     else:
+#         response.raise_for_status()  # Will raise an HTTPError if the HTTP request returned an unsuccessful status code
 # Load the trained models (Not working on Dec 17)
 # model_feature_url = 'https://raw.githubusercontent.com/takakishi/HEC_DS_ML_project/main/model/model_feature.pkl'
 # tfidf_vectorizer_url = 'https://raw.githubusercontent.com/takakishi/HEC_DS_ML_project/main/model/tfidf_vectorizer.pkl'
@@ -64,12 +63,30 @@ def load_component(url):
     component_file = BytesIO(response.content)
     component = joblib.load(component_file)
     return component
+# tfidf_vectorizer_url = 'https://raw.githubusercontent.com/takakishi/HEC_DS_ML_project/main/model/tfidf_vectorizer.joblib'
+# length_scaler_url = 'https://raw.githubusercontent.com/takakishi/HEC_DS_ML_project/main/model/length_scaler.joblib'
+# model_url = 'https://raw.githubusercontent.com/takakishi/HEC_DS_ML_project/main/model/log_reg_length_basic.joblib'
+# model = load_component(model_url)
+# tfidf_vectorizer = load_component(tfidf_vectorizer_url)
+# length_scaler = load_component(length_scaler_url)
+
+# URLs of the joblib files
+bert_vectorizer_url = 'https://raw.githubusercontent.com/takakishi/HEC_DS_ML_project/main/model/bert_vectorizer.joblib'
+classifier_concat_model_url = 'https://raw.githubusercontent.com/takakishi/HEC_DS_ML_project/main/model/classifier_concat_model.joblib'
+classifier_feature_model_url = 'https://raw.githubusercontent.com/takakishi/HEC_DS_ML_project/main/model/classifier_feature_model.joblib'
+classifier_tfidf_model_url = 'https://raw.githubusercontent.com/takakishi/HEC_DS_ML_project/main/model/classifier_tfidf_model.joblib'
 tfidf_vectorizer_url = 'https://raw.githubusercontent.com/takakishi/HEC_DS_ML_project/main/model/tfidf_vectorizer.joblib'
-length_scaler_url = 'https://raw.githubusercontent.com/takakishi/HEC_DS_ML_project/main/model/length_scaler.joblib'
-model_url = 'https://raw.githubusercontent.com/takakishi/HEC_DS_ML_project/main/model/log_reg_length_basic.joblib'
-model = load_component(model_url)
+final_NN_url = 'https://drive.google.com/file/d/1Ua4jAG8XuVqM_ziTabBTvzM_Re0v1PQK/view?usp=drive_link'
+
+# Load the models
+bert_vectorizer = load_component(bert_vectorizer_url)
+classifier_concat_model = load_component(classifier_concat_model_url)
+classifier_feature_model = load_component(classifier_feature_model_url)
+classifier_tfidf_model = load_component(classifier_tfidf_model_url)
 tfidf_vectorizer = load_component(tfidf_vectorizer_url)
-length_scaler = load_component(length_scaler_url)
+final_NN = load_component(final_NN_url)
+
+
 
 
 
@@ -95,17 +112,32 @@ if st.checkbox('Show our training data sample'):
 
 user_input = st.text_area("Enter French text here")
 
+# Complete version for Logistic Regression
+# if st.button('Predict Difficulty'):
+#     # Preprocess the user input
+#     user_input_tfidf = tfidf_vectorizer.transform([user_input])  # Vectorize text input
+#     user_input_length = [[len(user_input.split())]]  # Calculate length
+#     processed_input_length = length_scaler.transform(user_input_length)  # Scale length
+
+#     # Combine TF-IDF and length features
+#     final_input = hstack([user_input_tfidf, processed_input_length])
+
+#     # Predict and display the difficulty level
+#     prediction = model.predict(final_input)
+#     st.write(f"The predicted difficulty level is: {prediction[0]}")
+
+# When the user presses the 'Predict Difficulty' button, process the input
 if st.button('Predict Difficulty'):
     # Preprocess the user input
-    user_input_tfidf = tfidf_vectorizer.transform([user_input])  # Vectorize text input
-    user_input_length = [[len(user_input.split())]]  # Calculate length
-    processed_input_length = length_scaler.transform(user_input_length)  # Scale length
+    user_input_tfidf = tfidf_vectorizer.transform([user_input])  # Vectorize text input using TF-IDF
+    # ... Add any additional preprocessing steps for your models here ...
 
-    # Combine TF-IDF and length features
-    final_input = hstack([user_input_tfidf, processed_input_length])
+    # Combine features from different models as needed for your final model
+    # This is a placeholder; you'll need to modify it according to your actual model's needs
+    combined_features = hstack([user_input_tfidf, ...])
 
-    # Predict and display the difficulty level
-    prediction = model.predict(final_input)
+    # Predict and display the difficulty level using your final model
+    prediction = final_NN.predict(combined_features)
     st.write(f"The predicted difficulty level is: {prediction[0]}")
 
 
