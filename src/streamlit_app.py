@@ -39,7 +39,7 @@ Discover how we can elevate your French learning journey!
 # 1. Read Data from GitHub -----------------------------
 
 # Function to load the trained model
-@st.cache(allow_output_mutation=True)
+# @st.cache(allow_output_mutation=True)
 def load_component(url):
     response = requests.get(url)
     if response.status_code == 200:  # Check if the request was successful
@@ -49,28 +49,27 @@ def load_component(url):
     else:
         response.raise_for_status()  # Will raise an HTTPError if the HTTP request returned an unsuccessful status code
 
-# Load the trained models
-model_feature_url = 'https://raw.githubusercontent.com/takakishi/HEC_DS_ML_project/main/model/model_feature.pkl'
-tfidf_vectorizer_url = 'https://raw.githubusercontent.com/takakishi/HEC_DS_ML_project/main/model/tfidf_vectorizer.pkl'
-length_scaler_url = 'https://raw.githubusercontent.com/takakishi/HEC_DS_ML_project/main/model/length_scaler.pkl'
-
-model = load_component(model_feature_url)
-tfidf_vectorizer = load_component(tfidf_vectorizer_url)
-length_scaler = load_component(length_scaler_url)
+# Load the trained models (Not working on Dec 17)
+# model_feature_url = 'https://raw.githubusercontent.com/takakishi/HEC_DS_ML_project/main/model/model_feature.pkl'
+# tfidf_vectorizer_url = 'https://raw.githubusercontent.com/takakishi/HEC_DS_ML_project/main/model/tfidf_vectorizer.pkl'
+# length_scaler_url = 'https://raw.githubusercontent.com/takakishi/HEC_DS_ML_project/main/model/length_scaler.pkl'
+# model = load_component(model_feature_url)
+# tfidf_vectorizer = load_component(tfidf_vectorizer_url)
+# length_scaler = load_component(length_scaler_url)
 
 # Work well on Dec 17
 # @st.cache(allow_output_mutation=True)
-# def load_component(url):
-#     response = requests.get(url)
-#     component_file = BytesIO(response.content)
-#     component = joblib.load(component_file)
-#     return component
-# tfidf_vectorizer_url = 'https://raw.githubusercontent.com/takakishi/HEC_DS_ML_project/main/model/tfidf_vectorizer.joblib'
-# length_scaler_url = 'https://raw.githubusercontent.com/takakishi/HEC_DS_ML_project/main/model/length_scaler.joblib'
-# model_url = 'https://raw.githubusercontent.com/takakishi/HEC_DS_ML_project/main/model/log_reg_length_basic.joblib'
-# model = load_component(model_url)
-# tfidf_vectorizer = load_component(tfidf_vectorizer_url)
-# length_scaler = load_component(length_scaler_url)
+def load_component(url):
+    response = requests.get(url)
+    component_file = BytesIO(response.content)
+    component = joblib.load(component_file)
+    return component
+tfidf_vectorizer_url = 'https://raw.githubusercontent.com/takakishi/HEC_DS_ML_project/main/model/tfidf_vectorizer.joblib'
+length_scaler_url = 'https://raw.githubusercontent.com/takakishi/HEC_DS_ML_project/main/model/length_scaler.joblib'
+model_url = 'https://raw.githubusercontent.com/takakishi/HEC_DS_ML_project/main/model/log_reg_length_basic.joblib'
+model = load_component(model_url)
+tfidf_vectorizer = load_component(tfidf_vectorizer_url)
+length_scaler = load_component(length_scaler_url)
 
 
 
