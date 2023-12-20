@@ -21,16 +21,19 @@ We utilized a dataset provided by the professor, which includes French texts wit
 - `src/`: This directory contains all the source code used in this project.
   - `BERT4.ipynb`: The main script for training the model and running predictions.
   - `logistic_regression.ipynb`: The script for logistic regression. It does not produce the best predictions but it was our initial try. The results are presented in our table below.
+  - `streamlit_app.py`: Python code to build a Streamlit app.
 
 - `model/`
   - This folder stores our models exported from our code in `src/`.
+ 
+- `slide/`: PDF file of our presentation slide.
 
 
 ## Deliverables
 This repository documents the entire process of model development and provides the following components.
 
 ### (1) Model Comparison Table (NN = Neural Network)
-| Metrics     | [Logistic Regression](https://github.com/takakishi/HEC_DS_ML_project/blob/main/src/logistic_regression.ipynb) | Readiblity features NN | CamemBert NN | Word Frequency NN | Final NN |
+| Metrics     | Logistic Regression | Readiblity features NN | CamemBert NN | Word Frequency NN | Final NN |
 |-------------|---------|---------|---------|---------|---------|
 | Precision   | 0.470   | 0.401   | 0.552   | 0.454   | 0.537   |
 | Recall      | 0.472   | 0.409   | 0.548   | 0.456   | 0.536   |
@@ -38,7 +41,7 @@ This repository documents the entire process of model development and provides t
 | Accuracy    | 0.475   | 0.411   | 0.550   | 0.457   | 0.541   |
 
 ### (2) Presentation Video
-Please view our [YouTube presentation video](#) for a detailed explanation of our methodology and a demo of our application.
+Please view our [YouTube presentation video](https://www.youtube.com/watch?v=xcHz3Q9WRZ4) for a detailed explanation of our methodology and a demo of our application.
 
 ### (3) User Interface/Application
 We also developed a user-friendly interface with [Streamlit](https://streamlit.io/), allowing users to input French text and receive a difficulty assessment instantly. You can open and use our app on your PC by running the following command on your terminal:
@@ -49,7 +52,7 @@ git clone https://github.com/takakishi/HEC_DS_ML_project.git
 # Install streamlit if you use it for the first time
 pip install streamlit
 cd repository_name # specify this repository
-streamlit run .\src\streamlit_app.py
+streamlit run src/streamlit_app.py
 ```
 
 
