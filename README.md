@@ -30,12 +30,12 @@ We utilized a dataset provided by the professor, which includes French texts wit
 This repository documents the entire process of model development and provides the following components.
 
 ### (1) Model Comparison Table
-| Metrics     | Logistic Regression | Neural Network |
-|-------------|---------------------|----------------|
-| Precision   | ...                 | ...            |
-| Recall      | ...                 | ...            |
-| F1-Score    | ...                 | ...            |
-| Accuracy    | ...                 | ...            |
+| Metrics     | [Logistic Regression](https://github.com/takakishi/HEC_DS_ML_project/blob/main/src/logistic_regression.ipynb) | Neural Network |
+|-------------|---------|---------|
+| Precision   | 0.470   | 0.xxx   |
+| Recall      | 0.472   | 0.xxx   |
+| F1-Score    | 0.464   | 0.xxx   |
+| Accuracy    | 0.475   | 0.xxx   |
 
 ### (2) Presentation Video
 Please view our [YouTube presentation video](#) for a detailed explanation of our methodology and a demo of our application.
