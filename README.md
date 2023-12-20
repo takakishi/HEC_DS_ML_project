@@ -1,4 +1,4 @@
-![image](https://github.com/takakishi/HEC_DS_ML_project/assets/37149906/27c87c1f-a487-4a57-8cbb-2209814e410a)# DS and ML Final Project:<br> Detecting the Difficulty Level of French Texts
+# DS and ML Final Project:<br> Detecting the Difficulty Level of French Texts
 
 ## Members of UNIL_Zurich
 - Matteo Frison
@@ -19,7 +19,7 @@ We utilized a dataset provided by the professor, which includes French texts wit
   - `unlabelled_test_data.csv`: The test dataset for which the model predictions are generated.
 
 - `src/`: This directory contains all the source code used in this project.
-  - `XXX.ipynb`: The main script for training the model and running predictions.
+  - `BERT4.ipynb`: The main script for training the model and running predictions.
   - `logistic_regression.ipynb`: The script for logistic regression. It does not produce the best predictions but it was our initial try. The results are presented in our table below.
 
 - `model/`
