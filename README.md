@@ -53,6 +53,6 @@ streamlit run .\src\streamlit_app.py
 ```
 
 
-## Guide to Replication (TBC)
+## Guide to Replication
 - You can reproduce the results shown in the above table simply by running each notebook without using any other source files.
 - If you want to export the models, you need to uncomment the last code chunks in the notebooks as necessary.
