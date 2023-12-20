@@ -7,6 +7,7 @@ import pandas as pd
 import pickle
 import requests
 import joblib
+import sentencepiece
 from io import BytesIO
 from scipy.sparse import hstack
 
