@@ -48,7 +48,7 @@ git clone https://github.com/takakishi/HEC_DS_ML_project.git
 
 # Install streamlit if you use it for the first time
 pip install streamlit
-cd set_this_repository
+cd repository_name # specify this repository
 streamlit run .\src\streamlit_app.py
 ```
 
