@@ -10,10 +10,10 @@ import joblib
 from io import BytesIO
 from scipy.sparse import hstack
 
-import pkg_resources  # for checking packages
-installed_packages = {d.project_name: d.version for d in pkg_resources.working_set}
-st.text("Installed packages and versions:")
-st.text(installed_packages)
+# import pkg_resources  # for checking packages
+# installed_packages = {d.project_name: d.version for d in pkg_resources.working_set}
+# st.text("Installed packages and versions:")
+# st.text(installed_packages)
 
 
 
@@ -42,24 +42,35 @@ Discover how we can elevate your French learning journey!
 @st.cache(allow_output_mutation=True)
 def load_component(url):
     response = requests.get(url)
-    component_file = BytesIO(response.content)
-    component = joblib.load(component_file)
-    return component
+    if response.status_code == 200:  # Check if the request was successful
+        component_file = BytesIO(response.content)
+        component = joblib.load(component_file)
+        return component
+    else:
+        response.raise_for_status()  # Will raise an HTTPError if the HTTP request returned an unsuccessful status code
 
 # Load the trained models
-# model_feature_url = 'https://raw.githubusercontent.com/takakishi/HEC_DS_ML_project/main/model/model_feature.pkl'
-# tfidf_vectorizer_url = 'https://raw.githubusercontent.com/takakishi/HEC_DS_ML_project/main/model/tfidf_vectorizer.pkl'
-# length_scaler_url = 'https://raw.githubusercontent.com/takakishi/HEC_DS_ML_project/main/model/length_scaler.pkl'
-tfidf_vectorizer_url = 'https://raw.githubusercontent.com/takakishi/HEC_DS_ML_project/main/model/tfidf_vectorizer.joblib'
-length_scaler_url = 'https://raw.githubusercontent.com/takakishi/HEC_DS_ML_project/main/model/length_scaler.joblib'
-model_url = 'https://raw.githubusercontent.com/takakishi/HEC_DS_ML_project/main/model/log_reg_length_basic.joblib'
+model_feature_url = 'https://raw.githubusercontent.com/takakishi/HEC_DS_ML_project/main/model/model_feature.pkl'
+tfidf_vectorizer_url = 'https://raw.githubusercontent.com/takakishi/HEC_DS_ML_project/main/model/tfidf_vectorizer.pkl'
+length_scaler_url = 'https://raw.githubusercontent.com/takakishi/HEC_DS_ML_project/main/model/length_scaler.pkl'
 
-# model = load_component(model_feature_url)
-# tfidf_vectorizer = load_component(tfidf_vectorizer_url)
-
-model = load_component(model_url)
+model = load_component(model_feature_url)
 tfidf_vectorizer = load_component(tfidf_vectorizer_url)
 length_scaler = load_component(length_scaler_url)
+
+# Work well on Dec 17
+# @st.cache(allow_output_mutation=True)
+# def load_component(url):
+#     response = requests.get(url)
+#     component_file = BytesIO(response.content)
+#     component = joblib.load(component_file)
+#     return component
+# tfidf_vectorizer_url = 'https://raw.githubusercontent.com/takakishi/HEC_DS_ML_project/main/model/tfidf_vectorizer.joblib'
+# length_scaler_url = 'https://raw.githubusercontent.com/takakishi/HEC_DS_ML_project/main/model/length_scaler.joblib'
+# model_url = 'https://raw.githubusercontent.com/takakishi/HEC_DS_ML_project/main/model/log_reg_length_basic.joblib'
+# model = load_component(model_url)
+# tfidf_vectorizer = load_component(tfidf_vectorizer_url)
+# length_scaler = load_component(length_scaler_url)
 
 
 
@@ -105,9 +116,3 @@ if st.button('Predict Difficulty'):
 # E.g.,
 model_accuracy = {'Model A': 0.90, 'Model B': 0.85}
 st.bar_chart(model_accuracy)
-
-
-
-# bash ------------------------------------------
-# pip install streamlit
-# streamlit run streamlit_app.py
